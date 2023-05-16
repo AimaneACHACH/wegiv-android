@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1089342959920",
+    "project_id": "wegiv-1c9b2",
+    "storage_bucket": "wegiv-1c9b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089342959920:android:3c4983732130630d8798f5",
+        "android_client_info": {
+          "package_name": "com.ziyad.wegiv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089342959920-lov9o7sdrd2034j3i12f1mfnahnmhq3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmv1AAqPHxB-tXlZB7AZ57MpirNvYDIUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089342959920-ja9mlmv3lo74dgo6oi2adtif1at2es3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
