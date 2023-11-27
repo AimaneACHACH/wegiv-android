@@ -25,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
         app_slogan = findViewById(R.id.app_slogan);
 
         Animation fade_in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
-        Animation fade_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
+        //Animation fade_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
 
         app_logo.setAnimation(fade_in);
         app_name.setAnimation(fade_in);

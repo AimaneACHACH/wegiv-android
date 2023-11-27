@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddArticleFragment">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="867dp"
+        android:layout_height="1160dp"
+        android:layout_marginTop="-50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_signup" />
+
+    <EditText
+        android:id="@+id/article_title_et"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_style_2"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Title"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColorHint="#B76C6C6C"
+        app:layout_constraintStart_toStartOf="@+id/description_et"
+        app:layout_constraintTop_toBottomOf="@+id/article_pic" />
+
+
+    <EditText
+        android:id="@+id/description_et"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_style_2"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Description"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColorHint="#B76C6C6C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article_title_et" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/article_pic"
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:background="#A566AF"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/cornered_with_stroke"
+        app:srcCompat="@drawable/ic_add_pic" />
+
+
+    <EditText
+        android:id="@+id/location_et"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_style_2"
+        android:drawableStart="@drawable/ic_location"
+        android:drawablePadding="6dp"
+        android:ems="100"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Location"
+        android:inputType="textPostalAddress"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColorHint="#B76C6C6C"
+        app:layout_constraintEnd_toEndOf="@+id/expiration_time_et"
+        app:layout_constraintStart_toStartOf="@+id/expiration_date_et"
+        app:layout_constraintTop_toBottomOf="@+id/expiration_date_et" />
+
+    <Button
+        android:id="@+id/puclish_article_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Publish"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/location_et"
+        app:layout_constraintTop_toBottomOf="@+id/publish_progressBar"
+        app:rippleColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/cancel_publish_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_style_2"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="#F44336"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/location_et"
+        app:layout_constraintTop_toBottomOf="@+id/publish_progressBar"
+        app:rippleColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/error_publish_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="* Make sure to fill all fields !"
+        android:textColor="#F44336"
+        android:textSize="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_et" />
+
+    <ProgressBar
+        android:id="@+id/publish_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:indeterminateTint="#9529B0"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_et" />
+
+    <TextView
+        android:id="@+id/expiration_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Expires in :"
+        android:textColor="#F44336"
+        android:textSize="16dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/points_et"
+        app:layout_constraintTop_toBottomOf="@+id/points_et" />
+
+    <EditText
+        android:id="@+id/expiration_date_et"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_style_2"
+        android:drawableStart="@drawable/ic_date"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Date"
+        android:textColorHint="#B76C6C6C"
+        android:inputType="date"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        app:layout_constraintStart_toStartOf="@+id/expiration_tv"
+        app:layout_constraintTop_toBottomOf="@+id/expiration_tv" />
+
+    <EditText
+        android:id="@+id/expiration_time_et"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_style_2"
+        android:drawableStart="@drawable/ic_time"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Time"
+        android:inputType="time"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:textColorHint="#B76C6C6C"
+        app:layout_constraintEnd_toEndOf="@+id/does_expires_sw"
+        app:layout_constraintTop_toBottomOf="@+id/expiration_tv" />
+
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/description_et"
+        app:layout_constraintTop_toBottomOf="@+id/article_pic" />
+
+    <EditText
+        android:id="@+id/points_et"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_style_2"
+        android:drawableEnd="@drawable/ic_points"
+        android:drawablePadding="6dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Points"
+        android:inputType="number"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColorHint="#B76C6C6C"
+        app:layout_constraintStart_toStartOf="@+id/description_et"
+        app:layout_constraintTop_toBottomOf="@+id/description_et" />
+
+    <Switch
+        android:id="@+id/does_expires_sw"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Expires :"
+        android:textSize="16dp"
+        android:checked="true"
+        android:thumbTint="#9827AF"
+        android:buttonTint="@color/purple_200"
+        android:trackTint="@color/purple_200"
+        android:backgroundTint="@color/purple_200"
+        android:foregroundTint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="@+id/description_et"
+        app:layout_constraintTop_toBottomOf="@+id/description_et" />
+
+    <com.sagarkoli.chetanbottomnavigation.chetanBottomNavigation
+        android:id="@+id/addArticle_navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:sk_backgroundBottomColor="#ffffff"
+        app:sk_circleColor="#ffffff"
+        app:sk_countBackgroundColor="#ff6f00"
+        app:sk_countTextColor="#ffffff"
+        app:sk_countTypeface="fonts/Poppins-Medium.ttf"
+        app:sk_defaultIconColor="#90a4ae"
+        app:sk_rippleColor="#2f424242"
+        app:sk_selectedIconColor="#3c415e"
+        app:sk_shadowColor="#1f212121" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

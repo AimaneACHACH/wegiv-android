@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="cornered">
+        <item name="cornerSize">10%</item>
+    </style>
+    <style name="cornered_with_stroke">
+        <item name="cornerSize">10%</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="boxStrokeWidth">3dp</item>
+        <item name="boxStrokeColor">#7A0B4E</item>
+        <item name="strokeColor">#7A0B4E</item>
+    </style>
+</resources>

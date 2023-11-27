@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ProfileFragment">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="800dp"
+                android:layout_height="640dp"
+                android:layout_marginTop="-430dp"
+                android:rotation="-360"
+                android:src="@drawable/gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/user_image_iv"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="#787878"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_email_tv"
+                app:shapeAppearanceOverlay="@style/circular"
+                app:srcCompat="@drawable/ic_profile_pic"
+                tools:layout_editor_absoluteY="80dp" />
+
+            <TextView
+                android:id="@+id/user_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Lhabib SBIHI"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_tv" />
+
+            <TextView
+                android:id="@+id/welcome_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Welcome !"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/user_email_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="myemail@email.com"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/user_name_tv"
+                app:layout_constraintStart_toStartOf="@+id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@+id/user_name_tv" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You have:"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppins_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_image_iv" />
+
+            <TextView
+                android:id="@+id/user_balance_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 Pts"
+                android:textColor="#C0298E"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Earn points each time you list an article."
+                android:textSize="16dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_balance_tv" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:paddingStart="24dp"
+                android:background="#ECECEC"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="My listed articles :"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_articles_rv"
+                android:layout_width="409dp"
+                android:layout_height="190dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="1dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:reverseLayout="false" />
+
+            <TextView
+                android:id="@+id/no_listed_articles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="You have no listed articles."
+                android:visibility="invisible"
+                android:textSize="16dp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Or you can buy more points :"
+                android:textSize="16dp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_articles_rv" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#ECECEC"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="24dp"
+                android:text="Our offers:"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <Button
+                android:id="@+id/buy_btn_1"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_style_buy"
+                android:drawableStart="@drawable/ic_buy_points"
+                android:drawablePadding="14dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="8dp"
+                android:text="200 Pts for 49.99MAD"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <Button
+                android:id="@+id/buy_btn_2"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_style_buy"
+                android:drawableStart="@drawable/ic_buy_points"
+                android:drawablePadding="14dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="8dp"
+                android:text="500 Pts for 99.99MAD"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buy_btn_1" />
+
+            <Button
+                android:id="@+id/buy_btn_3"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/button_style_gold"
+                android:drawableStart="@drawable/ic_buy_points"
+                android:drawablePadding="14dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="8dp"
+                android:text="2000 Pts for 299.99MAD"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buy_btn_2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.sagarkoli.chetanbottomnavigation.chetanBottomNavigation
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:sk_backgroundBottomColor="#ffffff"
+        app:sk_circleColor="#ffffff"
+        app:sk_countBackgroundColor="#ff6f00"
+        app:sk_countTextColor="#ffffff"
+        app:sk_countTypeface="fonts/Poppins-Medium.ttf"
+        app:sk_defaultIconColor="#90a4ae"
+        app:sk_rippleColor="#2f424242"
+        app:sk_selectedIconColor="#3c415e"
+        app:sk_shadowColor="#1f212121" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories_array">
+        <item>Food</item>
+        <item>Clothes</item>
+        <item>Drugs</item>
+        <item>Utilities</item>
+        <item>Electronics</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="filter_categories_array">
+        <item>All</item>
+        <item>Food</item>
+        <item>Clothes</item>
+        <item>Drugs</item>
+        <item>Utilities</item>
+        <item>Electronics</item>
+        <item>Others</item>
+    </string-array>
+</resources>

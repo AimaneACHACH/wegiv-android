@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavoritesFragment"
+    android:orientation="vertical">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorites_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+
+    <com.sagarkoli.chetanbottomnavigation.chetanBottomNavigation
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:sk_backgroundBottomColor="#ffffff"
+        app:sk_circleColor="#ffffff"
+        app:sk_countBackgroundColor="#ff6f00"
+        app:sk_countTextColor="#ffffff"
+        app:sk_countTypeface="fonts/Poppins-Medium.ttf"
+        app:sk_defaultIconColor="#90a4ae"
+        app:sk_rippleColor="#2f424242"
+        app:sk_selectedIconColor="#3c415e"
+        app:sk_shadowColor="#1f212121" />
+
+    <TextView
+        android:id="@+id/no_favorites_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="italic"
+        android:visibility="invisible"
+        android:text="You have no article added to your favorites." />
+
+</RelativeLayout>

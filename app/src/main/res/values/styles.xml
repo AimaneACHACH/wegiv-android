@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">#781A42</item>
+    </style>
+
+    <style name="DrawerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">15sp</item> <!-- menu item text size-->
+        <item name="android:listPreferredItemHeightSmall">40dp</item><!-- menu item height-->
+    </style>
+
+    <style name="PoppinsTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+</resources>
