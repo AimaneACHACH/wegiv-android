@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -35,7 +35,7 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.sagarkoli.chetanbottomnavigation.chetanBottomNavigation;
-import com.ziyad.wegiv.databinding.ActivityMainBinding;
+import com.aimane.wegiv.databinding.ActivityMainBinding;
 
 import java.io.File;
 import java.io.IOException;

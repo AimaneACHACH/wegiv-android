@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;

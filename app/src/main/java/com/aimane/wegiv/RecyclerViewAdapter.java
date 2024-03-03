@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -213,7 +213,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     String articleId = dataSnapshot.getValue(String.class);
                     //Toast.makeText(context, articleId, Toast.LENGTH_SHORT).show();
                     if (articleId.equals(articlesList.get(position).getId())) {
-                        holder.save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+                        holder.save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
                     }
                 }
             }
@@ -238,7 +238,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try {
                     if (dataSnapshot.child(articlesList.get(position).getId()).exists()) {
-                        holder.save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+                        holder.save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
                     }
                 } catch(Exception e){
 
@@ -259,11 +259,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     public void onDataChange(DataSnapshot dataSnapshot) {
                             if (!dataSnapshot.child(articlesList.get(position).getId()).exists()){
                                 database.child(articlesList.get(position).getId()).setValue(articlesList.get(position).getId());
-                                holder.save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+                                holder.save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
                                 Toast.makeText(context, "Added to favorites.", Toast.LENGTH_SHORT).show();
                             } else {
                                 database.child(articlesList.get(position).getId()).removeValue();
-                                holder.save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_not_saved"));
+                                holder.save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_not_saved"));
                                 Toast.makeText(context, "Favorite article removed.", Toast.LENGTH_SHORT).show();
                             }
                     }

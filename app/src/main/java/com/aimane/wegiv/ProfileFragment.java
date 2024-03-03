@@ -1,27 +1,22 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,99 +24,72 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.sagarkoli.chetanbottomnavigation.chetanBottomNavigation;
-import com.ziyad.wegiv.databinding.ActivityMainBinding;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-public class FavoritesFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    chetanBottomNavigation bottomNavigation;
-    TextView no_favorites_tv;
-
-    RecyclerView favorites_rv;
+    ImageView user_image_iv;
+    TextView user_name_tv, user_email_tv, user_balance_tv, no_listed_articles_tv;
+    RecyclerView my_articles_rv;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
 
-    List<Article> articlesList = new ArrayList<>();
-    List<String> favoritesList = new ArrayList<>();
     FirebaseAuth auth;
+    List<Article> myArticlesList = new ArrayList<>();
 
     DatabaseReference database;
-    //StorageReference storageReference;
 
+    //Bottom nav
+    chetanBottomNavigation bottomNavigation;
     public static final int home = 1;
     public static final int fav = 2;
     public static final int add = 3;
     public static final int profile = 4;
     public static final int chat = 5;
 
-    //ActivityMainBinding binding;
-    //ProgressDialog progressDialog;
 
-    public FavoritesFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_favorites, container, false);
+        user_image_iv = view.findViewById(R.id.user_image_iv);
+        user_name_tv = view.findViewById(R.id.user_name_tv);
+        user_email_tv = view.findViewById(R.id.user_email_tv);
+        user_balance_tv = view.findViewById(R.id.user_balance_tv);
 
-
-
-        //RECYCLER VIEW
-        favorites_rv = view.findViewById(com.ziyad.wegiv.R.id.favorites_rv);
-        layoutManager = new LinearLayoutManager(getActivity());
-        favorites_rv.setLayoutManager(layoutManager);
-
-        //articles_rv.setHasFixedSize(true);
-
-        adapter = new RecyclerViewAdapterFavorites(articlesList, getActivity());
-        favorites_rv.setAdapter(adapter);
-
-        //retrieve FAVORITE ARTICLE from firebase and put them in articlesList
         auth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = auth.getCurrentUser();
-        String userId = currentUser.getUid();
 
-        database = FirebaseDatabase.getInstance().getReference("User/" + userId +"/favorites");
-        database.addValueEventListener(new ValueEventListener() {
+        user_name_tv.setText(currentUser.getDisplayName());
+        user_email_tv.setText(currentUser.getEmail());
+        user_image_iv.setImageURI(currentUser.getPhotoUrl());
+
+        String id = currentUser.getUid();
+
+        //Balance
+        database = FirebaseDatabase.getInstance().getReference("User/"+id+"/balance");
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    try {
-                        String articleId = dataSnapshot.getValue(String.class);
-                        favoritesList.add(articleId);
-                        no_favorites_tv.setVisibility(View.INVISIBLE);
-                    } catch (com.google.firebase.database.DatabaseException databaseException) {
-                        Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                        map.forEach((k,v) -> {
-                            favoritesList.add(k);
-                        });
-                        no_favorites_tv.setVisibility(View.INVISIBLE);
-                    } catch (Exception e) {
-                        Toast.makeText(getActivity(), "An error occured", Toast.LENGTH_SHORT).show();
-                    }
-
-                    //Toast.makeText(getActivity(), article.toString(), Toast.LENGTH_SHORT).show();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    Integer balance = dataSnapshot.getValue(Integer.class);
+                    user_balance_tv.setText(String.valueOf(balance) + " Pts");
                 }
-
-                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -130,20 +98,27 @@ public class FavoritesFragment extends Fragment {
             }
         });
 
+        //RECYCLER VIEW
+        my_articles_rv = view.findViewById(R.id.my_articles_rv);
+        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        my_articles_rv.setLayoutManager(layoutManager);
 
+        adapter = new RecyclerViewAdapterMyArticles(myArticlesList, getActivity());
+        my_articles_rv.setAdapter(adapter);
+
+        //retrieve data from firebase and put it in myArticlesList
         database = FirebaseDatabase.getInstance().getReference("Article");
         database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                for (String articleId : favoritesList) {
-                    Article article = datasnapshot.child(articleId).getValue(Article.class);
-                    if (!articlesList.contains(article)) {
-                        articlesList.add(article);
-                    }
-                    //articlesList.add(article);
-                    //Toast.makeText(getActivity(), article.toString(), Toast.LENGTH_SHORT).show();
-                }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Article article = dataSnapshot.getValue(Article.class);
+                    if (!myArticlesList.contains(article) && article.getPublisher().equals(id)) {
+                        myArticlesList.add(article);
+                        no_listed_articles_tv.setVisibility(View.INVISIBLE);
+                    }
+                }
                 adapter.notifyDataSetChanged();
             }
 
@@ -152,8 +127,6 @@ public class FavoritesFragment extends Fragment {
 
             }
         });
-
-
 
 
         //BOTTOM NAV
@@ -226,18 +199,16 @@ public class FavoritesFragment extends Fragment {
             }
         });
 
-        bottomNavigation.show(fav, true);
+        bottomNavigation.show(profile, true);
 
-        //No favorites text
-        no_favorites_tv = view.findViewById(R.id.no_favorites_tv);
+        //No listed article text
+        no_listed_articles_tv = view.findViewById(R.id.no_listed_articles);
         if (adapter.getItemCount() == 0) {
-            no_favorites_tv.setVisibility(View.VISIBLE);
+            no_listed_articles_tv.setVisibility(View.VISIBLE);
         } else {
-            no_favorites_tv.setVisibility(View.INVISIBLE);
+            no_listed_articles_tv.setVisibility(View.INVISIBLE);
         }
 
-        // Inflate the layout for this fragment
         return view;
     }
-
 }

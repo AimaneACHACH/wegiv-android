@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -90,7 +90,7 @@ public class RecyclerViewAdapterFavorites extends RecyclerView.Adapter<RecyclerV
         holder.premium_iv.setVisibility(View.INVISIBLE);
         holder.pts_tv.setTextColor(Color.parseColor("#AE2E8E"));
 
-        holder.save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+        holder.save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
 
         //animation
         holder.cardView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.article_animation));

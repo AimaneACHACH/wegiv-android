@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -236,7 +236,7 @@ public class ArticleDetailsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+                    save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
                 }
             }
 
@@ -255,11 +255,11 @@ public class ArticleDetailsFragment extends Fragment {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (!dataSnapshot.exists()){
                             database.child(article.getId()).setValue(article.getId());
-                            save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_saved"));
+                            save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_saved"));
                             Toast.makeText(getActivity(), "Added to favorites.", Toast.LENGTH_SHORT).show();
                         } else {
                             database.child(article.getId()).removeValue();
-                            save_iv.setImageURI(Uri.parse("android.resource://com.ziyad.wegiv/drawable/ic_not_saved"));
+                            save_iv.setImageURI(Uri.parse("android.resource://com.aimane.wegiv/drawable/ic_not_saved"));
                             Toast.makeText(getActivity(), "Favorite article removed.", Toast.LENGTH_SHORT).show();
                         }
                     }

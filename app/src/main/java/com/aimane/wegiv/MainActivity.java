@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.HomeFragment()).commit();
         } else if (item.getItemId() == R.id.nav_settings) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.SettingsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.SettingsFragment()).commit();
         } else if (item.getItemId() == R.id.nav_share) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.ShareFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.ShareFragment()).commit();
         } else if (item.getItemId() == R.id.nav_about) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.AboutFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.AboutFragment()).commit();
         } else if (item.getItemId() == R.id.nav_logout) {
             //SignOUT
             signOut_ProgressBar.setVisibility(View.VISIBLE);
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.AddArticleFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.AddArticleFragment()).commit();
     }
 
     public void HomeFragment() {
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.HomeFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.HomeFragment()).commit();
     }
 
     public void FavoritesFragment() {
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.HomeFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.HomeFragment()).commit();
     }
 
     public void ProfileFragment() {
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.ziyad.wegiv.HomeFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new com.aimane.wegiv.HomeFragment()).commit();
     }
 
     public void ArticleDetailsFragment(Article article) {

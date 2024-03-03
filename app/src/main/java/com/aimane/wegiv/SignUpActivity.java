@@ -1,6 +1,6 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
-import static com.ziyad.wegiv.R.*;
+import static com.aimane.wegiv.R.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

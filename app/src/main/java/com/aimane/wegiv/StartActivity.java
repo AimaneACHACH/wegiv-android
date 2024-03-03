@@ -1,4 +1,4 @@
-package com.ziyad.wegiv;
+package com.aimane.wegiv;
 
 import androidx.appcompat.app.AppCompatActivity;
 
